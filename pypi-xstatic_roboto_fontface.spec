@@ -4,7 +4,7 @@
 #
 Name     : pypi-xstatic_roboto_fontface
 Version  : 0.5.0.0
-Release  : 3
+Release  : 4
 URL      : https://files.pythonhosted.org/packages/1a/9a/a6b23651a238ad7e71dfa7f7a0c9f205b6fd1b5336f93985f7ef65f6a85b/XStatic-roboto-fontface-0.5.0.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/1a/9a/a6b23651a238ad7e71dfa7f7a0c9f205b6fd1b5336f93985f7ef65f6a85b/XStatic-roboto-fontface-0.5.0.0.tar.gz
 Summary  : roboto-fontface 0.5.0 (XStatic packaging standard)
@@ -62,6 +62,7 @@ python3 components for the pypi-xstatic_roboto_fontface package.
 cd %{_builddir}/XStatic-roboto-fontface-0.5.0.0
 pushd ..
 cp -a XStatic-roboto-fontface-0.5.0.0 buildavx2
+cp -a XStatic-roboto-fontface-0.5.0.0 buildavx512
 popd
 
 %build
@@ -69,7 +70,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1669970260
+export SOURCE_DATE_EPOCH=1671855450
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -82,8 +83,8 @@ export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
 pushd ../buildavx2/
-export CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
-export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
+export CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 -msse2avx "
+export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 -msse2avx"
 export FFLAGS="$FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3 "
 export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3 "
@@ -94,13 +95,13 @@ popd
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-xstatic_roboto_fontface
-cp %{_builddir}/XStatic-roboto-fontface-%{version}/xstatic/pkg/roboto_fontface/data/LICENSE %{buildroot}/usr/share/package-licenses/pypi-xstatic_roboto_fontface/39644573b71d2ecc99d29f510ffb0ba53fe07b62 || :
+cp %{_builddir}/XStatic-roboto-fontface-%{version}/xstatic/pkg/roboto_fontface/data/LICENSE %{buildroot}/usr/share/package-licenses/pypi-xstatic_roboto_fontface/39644573b71d2ecc99d29f510ffb0ba53fe07b62
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
 pushd ../buildavx2/
-export CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
+export CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 -msse2avx "
 export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 export FFLAGS="$FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3 "
