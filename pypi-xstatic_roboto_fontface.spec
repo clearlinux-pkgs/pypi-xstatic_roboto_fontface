@@ -4,7 +4,7 @@
 #
 Name     : pypi-xstatic_roboto_fontface
 Version  : 0.5.0.0
-Release  : 4
+Release  : 5
 URL      : https://files.pythonhosted.org/packages/1a/9a/a6b23651a238ad7e71dfa7f7a0c9f205b6fd1b5336f93985f7ef65f6a85b/XStatic-roboto-fontface-0.5.0.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/1a/9a/a6b23651a238ad7e71dfa7f7a0c9f205b6fd1b5336f93985f7ef65f6a85b/XStatic-roboto-fontface-0.5.0.0.tar.gz
 Summary  : roboto-fontface 0.5.0 (XStatic packaging standard)
@@ -70,7 +70,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1671855450
+export SOURCE_DATE_EPOCH=1672120977
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
